@@ -19,4 +19,9 @@ export default defineConfig({
     environment: "jsdom",
     include: ["tests/unit/**/*.test.ts"],
   },
+  resolve: {
+    // This is a client-only app; also picks the svelte build that can mount
+    // components when tests run under jsdom.
+    conditions: ["browser"],
+  },
 });

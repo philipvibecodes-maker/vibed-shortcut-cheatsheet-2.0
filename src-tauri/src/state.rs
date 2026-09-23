@@ -60,3 +60,58 @@ impl AppState {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::config::settings::Corner;
+
+    fn state() -> AppState {
+        let mut shortcuts = ShortcutDb::default();
+        shortcuts.apps.insert(
+            "Google-chrome".to_string(),
+            AppEntry {
+                display_name: "Google Chrome".to_string(),
+                shortcuts: vec![crate::config::shortcuts::Shortcut {
+                    action: "New tab".to_string(),
+                    keys: "Ctrl+T".to_string(),
+                }],
+            },
+        );
+        AppState::new(
+            PathBuf::from("/tmp"),
+            Settings {
+                font_size: 14.0,
+                corner: Corner::BottomLeft,
+            },
+            shortcuts,
+        )
+    }
+
+    /// The `get_state` contract includes the window corner so the frontend can
+    /// reflect where the window sits and reposition it.
+    #[test]
+    fn cheatsheet_payload_includes_the_corner() {
+        let payload = serde_json::to_value(state().cheatsheet()).unwrap();
+        assert_eq!(payload["corner"], "bottom_left");
+    }
+
+    /// With no app to show, the payload must mark the window hidden so the
+    /// frontend does not render an empty frame.
+    #[test]
+    fn empty_cheatsheet_is_marked_hidden() {
+        let payload = serde_json::to_value(state().cheatsheet()).unwrap();
+        assert_eq!(payload["visible"], false);
+    }
+
+    /// A focused app with shortcuts marks the window visible and sends its
+    /// table.
+    #[test]
+    fn shown_cheatsheet_is_marked_visible() {
+        let mut state = state();
+        state.last_shown_app = Some("Google-chrome".to_string());
+        let payload = serde_json::to_value(state.cheatsheet()).unwrap();
+        assert_eq!(payload["visible"], true);
+        assert_eq!(payload["displayName"], "Google Chrome");
+    }
+}
