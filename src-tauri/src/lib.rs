@@ -38,6 +38,11 @@ pub fn run() {
             commands::quit,
         ])
         .setup(|app| {
+            if let Some(window) = app.get_webview_window("main") {
+                // GTK otherwise keeps the toolkit's own floor, which stops the
+                // window from shrink-wrapping small tables.
+                window.set_min_size(Some(tauri::LogicalSize::new(1.0, 1.0)))?;
+            }
             let config_dir = config::config_dir(app.handle())?;
             let settings = Settings::load_or_default(&config_dir);
             let shortcuts = ShortcutDb::load_or_seed(&config_dir)?;
