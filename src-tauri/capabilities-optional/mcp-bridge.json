@@ -1,0 +1,11 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "mcp-bridge",
+  "description": "Automation bridge used by the integration tests; enabled by the `mcp-bridge` cargo feature only",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "mcp-bridge:default"
+  ]
+}

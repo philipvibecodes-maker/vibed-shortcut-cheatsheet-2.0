@@ -1,0 +1,145 @@
+{
+  "apps": {
+    "Google-chrome": {
+      "display_name": "Google Chrome",
+      "shortcuts": [
+        {
+          "action": "New tab",
+          "keys": "Ctrl+T"
+        },
+        {
+          "action": "New window",
+          "keys": "Ctrl+N"
+        },
+        {
+          "action": "New incognito window",
+          "keys": "Ctrl+Shift+N"
+        },
+        {
+          "action": "Close tab",
+          "keys": "Ctrl+W"
+        },
+        {
+          "action": "Close window",
+          "keys": "Ctrl+Shift+W"
+        },
+        {
+          "action": "Reopen closed tab",
+          "keys": "Ctrl+Shift+T"
+        },
+        {
+          "action": "Next tab",
+          "keys": "Ctrl+Tab"
+        },
+        {
+          "action": "Previous tab",
+          "keys": "Ctrl+Shift+Tab"
+        },
+        {
+          "action": "Jump to tab 1-8",
+          "keys": "Ctrl+1 … Ctrl+8"
+        },
+        {
+          "action": "Jump to last tab",
+          "keys": "Ctrl+9"
+        },
+        {
+          "action": "Back",
+          "keys": "Alt+Left"
+        },
+        {
+          "action": "Forward",
+          "keys": "Alt+Right"
+        },
+        {
+          "action": "Reload",
+          "keys": "Ctrl+R"
+        },
+        {
+          "action": "Hard reload",
+          "keys": "Ctrl+Shift+R"
+        },
+        {
+          "action": "Stop loading",
+          "keys": "Esc"
+        },
+        {
+          "action": "Focus address bar",
+          "keys": "Ctrl+L"
+        },
+        {
+          "action": "Search in page",
+          "keys": "Ctrl+F"
+        },
+        {
+          "action": "Find next",
+          "keys": "Ctrl+G"
+        },
+        {
+          "action": "Zoom in",
+          "keys": "Ctrl++"
+        },
+        {
+          "action": "Zoom out",
+          "keys": "Ctrl+-"
+        },
+        {
+          "action": "Reset zoom",
+          "keys": "Ctrl+0"
+        },
+        {
+          "action": "Bookmark page",
+          "keys": "Ctrl+D"
+        },
+        {
+          "action": "Show bookmarks bar",
+          "keys": "Ctrl+Shift+B"
+        },
+        {
+          "action": "History",
+          "keys": "Ctrl+H"
+        },
+        {
+          "action": "Downloads",
+          "keys": "Ctrl+J"
+        },
+        {
+          "action": "Clear browsing data",
+          "keys": "Ctrl+Shift+Delete"
+        },
+        {
+          "action": "Developer tools",
+          "keys": "Ctrl+Shift+I"
+        },
+        {
+          "action": "Inspect element",
+          "keys": "Ctrl+Shift+C"
+        },
+        {
+          "action": "JavaScript console",
+          "keys": "Ctrl+Shift+J"
+        },
+        {
+          "action": "View page source",
+          "keys": "Ctrl+U"
+        },
+        {
+          "action": "Print",
+          "keys": "Ctrl+P"
+        },
+        {
+          "action": "Save page",
+          "keys": "Ctrl+S"
+        },
+        {
+          "action": "Task manager",
+          "keys": "Shift+Esc"
+        },
+        {
+          "action": "Full screen",
+          "keys": "F11"
+        }
+      ]
+    }
+  }
+}
