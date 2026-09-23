@@ -16,8 +16,8 @@
     void getState().then((s) => (state = s));
     const unlisten = onUpdate((s) => (state = s));
 
-    const observer = new ResizeObserver(([entry]) => {
-      const { width, height } = entry.contentRect;
+    const observer = new ResizeObserver(() => {
+      const { width, height } = frame.getBoundingClientRect();
       void reportContentSize(Math.ceil(width), Math.ceil(height));
     });
     observer.observe(frame);

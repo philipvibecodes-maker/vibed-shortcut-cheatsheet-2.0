@@ -50,13 +50,16 @@ pub fn move_corner(state: SharedState<'_>, direction: Direction) -> Result<(), S
     // Repositioning is wired up in the window-placement milestone.
 }
 
+/// Smallest window the toolkit accepts; GTK rejects zero-sized resizes.
+const MIN_WINDOW_SIZE: u32 = 1;
+
 /// Reported by the frontend whenever the rendered table changes size, so the
-/// window can shrink-wrap the table.
+/// window can shrink-wrap the table. The size is the frame's border box in
+/// logical pixels.
 #[tauri::command]
 pub fn report_content_size(window: tauri::Window, width: u32, height: u32) -> Result<(), String> {
-    window
-        .set_size(tauri::LogicalSize::new(width, height))
-        .map_err(|e| e.to_string())
+    let size = tauri::LogicalSize::new(width.max(MIN_WINDOW_SIZE), height.max(MIN_WINDOW_SIZE));
+    window.set_size(size).map_err(|e| e.to_string())
 }
 
 #[tauri::command]
