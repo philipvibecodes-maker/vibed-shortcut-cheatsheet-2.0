@@ -1,0 +1,25 @@
+:root {
+  --bg: #16181d;
+  --fg: #e6e6e6;
+  --fg-dim: #9aa0a6;
+  --key-bg: #262a31;
+  --border: #2f343c;
+  --radius: 12px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--fg);
+  font-family: system-ui, sans-serif;
+  /* The window is a panel, not a document: no selection, no context menu. */
+  user-select: none;
+  cursor: default;
+  overflow: hidden;
+}
+
+#app {
+  display: inline-block;
+}
